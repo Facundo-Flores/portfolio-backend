@@ -11,13 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class CursoServiceImpl implements ICurriculumService<Curso> {
+public class CursoServiceImpl implements ICurriculumService<Curso> {
 
     private final ICursoRepository cursoRepository;
 
@@ -98,6 +99,11 @@ public abstract class CursoServiceImpl implements ICurriculumService<Curso> {
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<CursoResponse> crear(Curso objeto) {
+        return null;
     }
 
     @Override

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class ExperienciaServiceImpl implements ICurriculumService<Experiencia> {
+public class ExperienciaServiceImpl implements ICurriculumService<Experiencia> {
 
     private final IExperienciaRepository experienciaRepository;
     private final IPersonaRepository personaRepository;
@@ -104,6 +104,11 @@ public abstract class ExperienciaServiceImpl implements ICurriculumService<Exper
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity crear(Experiencia objeto) {
+        return null;
     }
 
     @Override

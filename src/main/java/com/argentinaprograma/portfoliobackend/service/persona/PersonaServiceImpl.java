@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class PersonaServiceImpl implements ICurriculumService<Persona> {
+public class PersonaServiceImpl implements ICurriculumService<Persona> {
 
     private final IPersonaRepository personaRepository;
 
@@ -69,6 +69,11 @@ public abstract class PersonaServiceImpl implements ICurriculumService<Persona> 
         }
 
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity crear(Persona objeto, Long personaId) {
+        return null;
     }
 
     @Override

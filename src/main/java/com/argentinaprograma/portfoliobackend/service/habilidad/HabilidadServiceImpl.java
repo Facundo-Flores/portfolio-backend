@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class HabilidadServiceImpl implements ICurriculumService<Habilidad> {
+public class HabilidadServiceImpl implements ICurriculumService<Habilidad> {
 
     private final IHabilidadRepository habilidadRepository;
 
@@ -95,6 +95,11 @@ public abstract class HabilidadServiceImpl implements ICurriculumService<Habilid
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity crear(Habilidad objeto) {
+        return null;
     }
 
     @Override

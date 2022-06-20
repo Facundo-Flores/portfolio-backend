@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class EducacionServiceImpl implements ICurriculumService<Educacion> {
+public class EducacionServiceImpl implements ICurriculumService<Educacion> {
 
     private final IEducacionRepository educacionRepository;
 
@@ -98,6 +98,11 @@ public abstract class EducacionServiceImpl implements ICurriculumService<Educaci
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<EducacionResponse> crear(Educacion objeto) {
+        return null;
     }
 
     @Override

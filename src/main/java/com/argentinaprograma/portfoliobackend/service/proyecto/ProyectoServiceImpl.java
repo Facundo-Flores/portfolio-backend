@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class ProyectoServiceImpl implements ICurriculumService<Proyecto> {
+public class ProyectoServiceImpl implements ICurriculumService<Proyecto> {
 
     private final IProyectoRepository proyectoRepository;
 
@@ -100,6 +100,11 @@ public abstract class ProyectoServiceImpl implements ICurriculumService<Proyecto
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity crear(Proyecto objeto) {
+        return null;
     }
 
     @Override
