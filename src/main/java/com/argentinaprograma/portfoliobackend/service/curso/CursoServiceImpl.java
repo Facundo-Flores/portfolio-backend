@@ -9,13 +9,15 @@ import com.argentinaprograma.portfoliobackend.service.ICurriculumService;
 import com.argentinaprograma.portfoliobackend.util.ImageUtility;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CursoServiceImpl implements ICurriculumService {
+@Service
+public abstract class CursoServiceImpl implements ICurriculumService<Curso> {
 
     private final ICursoRepository cursoRepository;
 
