@@ -2,6 +2,7 @@ package com.argentinaprograma.portfoliobackend.controller;
 
 import com.argentinaprograma.portfoliobackend.model.Experiencia;
 import com.argentinaprograma.portfoliobackend.response.ExperienciaResponse;
+import com.argentinaprograma.portfoliobackend.service.ICurriculumService;
 import com.argentinaprograma.portfoliobackend.service.experiencia.ExperienciaServiceImpl;
 import com.argentinaprograma.portfoliobackend.util.ImageUtility;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,12 +26,12 @@ public class ExperienciaRestController {
     }
 
     @GetMapping("/experiencia")
-    public ResponseEntity<ExperienciaResponse> buscarPersonas() {
+    public ResponseEntity<ExperienciaResponse> buscarExperiencias() {
         return experienciaService.buscar();
     }
 
     @GetMapping("/experiencia/{id}")
-    public ResponseEntity<ExperienciaResponse> buscarPersonaPorId(@PathVariable Long id) {
+    public ResponseEntity<ExperienciaResponse> buscarExperienciaPorId(@PathVariable Long id) {
         return experienciaService.buscarPorId(id);
     }
 

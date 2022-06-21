@@ -3,6 +3,7 @@ package com.argentinaprograma.portfoliobackend.config.security;
 import com.argentinaprograma.portfoliobackend.config.ApplicationProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +15,7 @@ import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
 import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
 import org.springframework.security.oauth2.jwt.*;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -23,7 +25,7 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
     private final AuthenticationErrorHandler authenticationErrorHandler;
 
@@ -31,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final ApplicationProperties applicationProps;
 
-    //@Override
     public void configure(final WebSecurity web) throws Exception {
         final var exclusionRegex = "^(?!%s|%s).*$".formatted(
                 "/api/messages/protected",
@@ -42,8 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .regexMatchers(exclusionRegex);
     }
 
-    //@Override
-    protected void configure(final HttpSecurity http) throws Exception {
+
+    @Bean
+    protected SecurityFilterChain configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/v1/**")
                 .permitAll()
@@ -57,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(authenticationErrorHandler)
                 .jwt()
                 .decoder(makeJwtDecoder());
+        return http.build();
     }
 
     CorsConfigurationSource corsConfigurationSource() {
