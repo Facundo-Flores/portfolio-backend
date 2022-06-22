@@ -4,6 +4,7 @@ import com.argentinaprograma.portfoliobackend.model.Curso;
 import com.argentinaprograma.portfoliobackend.response.CursoResponse;
 import com.argentinaprograma.portfoliobackend.service.curso.CursoServiceImpl;
 import com.argentinaprograma.portfoliobackend.util.ImageUtility;
+import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;

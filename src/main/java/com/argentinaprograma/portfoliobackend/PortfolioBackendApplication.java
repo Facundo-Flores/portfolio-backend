@@ -17,7 +17,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @ConfigurationPropertiesScan
 public class PortfolioBackendApplication {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final var context = SpringApplication.run(PortfolioBackendApplication.class, args);
         final var serverProps = context.getBean(ServerProperties.class);
@@ -25,6 +25,12 @@ public class PortfolioBackendApplication {
         final var port = serverProps.getPort();
         final var clientOriginUrl = applicationProps.getClientOriginUrl();
         final var audience = applicationProps.getAudience();
+        System.out.println(context);
+        System.out.println(serverProps);
+        System.out.println(applicationProps);
+        System.out.println(port);
+        System.out.println(clientOriginUrl);
+        System.out.println(audience);
 
         if (port == null || port == 0) {
             exitWithMissingEnv(context, "PORT");

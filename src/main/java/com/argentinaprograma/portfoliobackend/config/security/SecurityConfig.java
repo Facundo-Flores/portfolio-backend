@@ -25,13 +25,14 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     private final AuthenticationErrorHandler authenticationErrorHandler;
 
     private final OAuth2ResourceServerProperties resourceServerProps;
 
     private final ApplicationProperties applicationProps;
+
 
     public void configure(final WebSecurity web) throws Exception {
         final var exclusionRegex = "^(?!%s|%s).*$".formatted(
@@ -44,8 +45,8 @@ public class SecurityConfig {
     }
 
 
-    @Bean
-    protected SecurityFilterChain configure(final HttpSecurity http) throws Exception {
+
+    protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/v1/**")
                 .permitAll()
@@ -53,14 +54,14 @@ public class SecurityConfig {
                 .authenticated()
                 .and()
                 .cors()
-                .configurationSource(corsConfigurationSource())
+                //.configurationSource(corsConfigurationSource())
                 .and()
                 .oauth2ResourceServer()
                 .authenticationEntryPoint(authenticationErrorHandler)
                 .jwt()
                 .decoder(makeJwtDecoder());
-        return http.build();
     }
+
 
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
