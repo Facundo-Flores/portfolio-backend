@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .authenticated()
                 .and()
                 .cors()
-                //.configurationSource(corsConfigurationSource())
+                .configurationSource(corsConfigurationSource())
                 .and()
                 .oauth2ResourceServer()
                 .authenticationEntryPoint(authenticationErrorHandler)
