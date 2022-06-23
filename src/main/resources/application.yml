@@ -1,8 +1,8 @@
 ---
 
 application:
-  audience: ${env.AUTH0_AUDIENCE:}
-  client-origin-url: ${env.CLIENT_ORIGIN_URL:}
+  audience: https://portfolio-backend-prueba.herokuapp.com/
+  client-origin-url: https://portfolio-frontend-prueba.web.app
 
 server:
   error:
@@ -17,7 +17,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://${env.AUTH0_DOMAIN}/
+          issuer-uri: https://dev-z8wk36jr.us.auth0.com/
   web:
     resources:
       add-mappings: false
