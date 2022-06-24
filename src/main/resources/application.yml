@@ -8,7 +8,7 @@ server:
   error:
     whitelabel:
       enabled: false
-  port: ${env.PORT:0}
+  port: ${PORT:8080}
 
 spring:
   mvc:

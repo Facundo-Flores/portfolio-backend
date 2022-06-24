@@ -32,5 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
-#Local properties
+#Local properties, secrets, keys, etc
 .env
+application.properties
+application.yml
+system.properties
+portfolio-backend.iml
+
