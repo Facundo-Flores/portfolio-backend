@@ -1,14 +1,14 @@
 ---
 
 application:
-  audience: https://portfolio-backend-prueba.herokuapp.com/
-  client-origin-url: https://portfolio-frontend-prueba.web.app
+  audience: 
+  client-origin-url: 
 
 server:
   error:
     whitelabel:
       enabled: false
-  port: ${PORT:8080}
+  port: 
 
 spring:
   mvc:
@@ -17,7 +17,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://dev-z8wk36jr.us.auth0.com/
+          issuer-uri: 
   web:
     resources:
       add-mappings: false
