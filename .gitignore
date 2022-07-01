@@ -34,8 +34,8 @@ build/
 
 #Local properties, secrets, keys, etc
 .env
-application.properties
-application.yml
+/src/main/resources/application.properties
+/src/main/resources/application.yml
 system.properties
 portfolio-backend.iml
 
